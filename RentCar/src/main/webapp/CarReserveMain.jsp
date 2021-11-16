@@ -20,6 +20,13 @@ Vector<CarListBean> v = rdao.getSelectCar();
 %>
 
 <table width="1000">
+<tr height="60">
+<td align="center" colspan="3">
+<font size="5" color="gray">최신형 자동차 </font>
+</td>
+</tr>
+
+
 <tr height="240">
 
 <% for(int i = 0 ;i< v.size();i++){ 
@@ -46,10 +53,11 @@ CarListBean bean = v.get(i);
 
 <option value="3">대형 </option> 
 </select>&nbsp;&nbsp;
-<input type="submit" value="검색">&nbsp;&nbsp;
+<input type="submit" value="검색">&nbsp;&nbsp;<br>
+</form>
+
 <button onclick="location.href='RentcarMain.jsp?center=CarAllList.jsp' ">전체검색 </button>
 
-</form>
 </center>
 </body>
 </html>

@@ -24,7 +24,9 @@ if(id == null){
 	<table width="1000" border = "1">
 		<tr height="70">
 		<td colspan="4">
+		<a href="RentcarMain.jsp"style="text-decoration:none">
 		<img alt="" src="images/RENT.png" width="65" height="65">
+		</a>
 		</td>
 		<td align="center" width="200">
 		<%=id %>님 반갑습니다. 

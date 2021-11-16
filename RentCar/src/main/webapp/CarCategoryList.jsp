@@ -10,11 +10,29 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%	//카테고리 분류값을 받아옴 
+int category = Integer.parseInt(request.getParameter("category"));
+String temp = "";
+if(category == 1){
+	temp = "소형";
+}else if(category == 2){
+	temp="중형";
+	
+}else if(category == 3){
+	temp="대형";
+}
+%>
+
 <center>
 <table width="1000">
+<tr height="60">
+<td align="center" colspan="3">
+<font size="5" color="gray"> <%=temp %>자동차 </font>
+</td>
+</tr>
 <%
-		//카테고리 분류값을 받아옴 
-		int category = Integer.parseInt(request.getParameter("category"));
+	
 
 		RentcarDAO rdao = new RentcarDAO();
 		
