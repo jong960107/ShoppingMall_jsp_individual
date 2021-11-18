@@ -33,7 +33,7 @@ Vector<CarListBean> v = rdao.getSelectCar();
 CarListBean bean = v.get(i);
 %>
 <td width="333" align="center">
-<a href="CarReserveInfo.jsp?no=<%=bean.getNo()%>">
+<a href="RentcarMain.jsp?center=CarReserveInfo.jsp?no=<%=bean.getNo()%>">
 <img alt="" src="images/<%=bean.getImg()%>" width="300" height="200"></a>
 <p>
 차량명: <%=bean.getName() %>

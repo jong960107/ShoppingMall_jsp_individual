@@ -173,4 +173,48 @@ public class RentcarDAO {
 		
 	}
 	
+	//하나의 자동차 정보를 리턴하는 메소드
+	public CarListBean getOneCar(int no) {
+		
+		
+			//리턴타입 선언 
+		CarListBean bean = new CarListBean();
+		getCon();
+		
+		try {
+			String sql = "select * from RentCar where no =?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+		if(rs.next()) {
+				
+				//데이터를 저장할 빈클래스 생성 
+				bean = new CarListBean();
+				bean.setNo(rs.getInt(1));
+				bean.setName(rs.getString(2));
+				bean.setCategory(rs.getInt(3));
+				bean.setPrice(rs.getInt(4));
+				bean.setUsepeople(rs.getInt(5));
+				bean.setCompany(rs.getString(6));
+				bean.setImg(rs.getString(7));
+				bean.setInfo(rs.getString(8));
+				
+			
+				//반복문으로 빠져나가시오;
+				
+				
+				
+			}
+			
+			con.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return bean;
+	}
+	
+	
+	
+	
 }
