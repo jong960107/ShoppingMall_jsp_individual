@@ -214,7 +214,35 @@ public class RentcarDAO {
 		return bean;
 	}
 	
-	
-	
+	//회원 정보가 있는지를 비교 
+	public int getMember(String id,String password) {
+		
+		int result = 0;//0이면회원 없음 
+		
+		getCon();
+		
+		try {
+			
+			String sql = "select count(*) from member where id = ? and password = ?";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				result = rs.getInt(1);//0또는 1의 값이 저장
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
 	
 }

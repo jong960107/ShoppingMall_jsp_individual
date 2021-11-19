@@ -33,7 +33,7 @@ if(id == null){
 		<%
 		if(id.equals("GUEST")){
 			%>
-			<button onclick="RentcarMain.jsp?center=MemberLogin.jsp">로그인 </button>
+			<button onclick="location.href='RentcarMain.jsp?center=MemberLogin.jsp' ">로그인 </button>
 			<% 
 		}
 		%>

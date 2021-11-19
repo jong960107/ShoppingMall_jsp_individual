@@ -35,7 +35,7 @@
 	<center>
 		<form action="RentcarMain.jsp?center=CarOptionSelect.jsp" method="post">
 			<table width="1000">
-				<tr height="60">
+				<tr height="100">
 					<td align="center" colspan="3"><font size="5" color="gray">
 							<%=bean.getName()%>차량선택
 					</font></td>
