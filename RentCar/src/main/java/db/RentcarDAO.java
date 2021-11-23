@@ -245,4 +245,77 @@ public class RentcarDAO {
 		
 	}
 	
+	//하나의 예약 정보를 저장하는 메소드 
+	public void setReserveCar(CarReserveBean bean) {
+		
+		getCon();
+		try {
+			
+			String sql = "insert into carreserve values(null,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			//?에 값을 대입
+			pstmt.setString(1, bean.getId());
+			pstmt.setInt(2, bean.getNo());
+			pstmt.setInt(3, bean.getQty());
+			pstmt.setInt(4,bean.getDday());
+			pstmt.setString(5, bean.getRday());
+			pstmt.setInt(6, bean.getUsein());
+			pstmt.setInt(7, bean.getUsewifi());
+			pstmt.setInt(8, bean.getUseseat());
+			pstmt.setInt(9, bean.getUsenavi());
+			
+			pstmt.executeUpdate();
+			
+			con.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	//회원의 예약정보를 리턴하는 메서드
+	public Vector<CarViewBean>getAllReserve(String id){
+		
+		Vector<CarViewBean>v = new Vector<>();
+		CarViewBean bean = null;
+		
+		
+		getCon();
+		
+		try {
+			String sql = "select * from sys.RentCar natural join sys.carreserve\n"
+					+ "where sysdate < to_date(rday,'YYYY-MM--DD') and id = ?";
+			
+			pstmt = con.prepareStatement(sql);
+			//?
+			pstmt.setString(1, id);
+			//결과 리턴 
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				
+				bean = new CarViewBean();
+				bean.setName(rs.getString(2));
+				bean.setPrice(rs.getInt(4));
+				bean.setImg(rs.getString(7));
+				bean.setQty(rs.getInt(11));
+				bean.setDday(rs.getInt(12));
+				bean.setRday(rs.getString(13));
+				bean.setUsein(rs.getInt(14));
+				bean.setUsewifi(rs.getInt(15));
+				bean.setUsenavi(rs.getInt(16));
+				//빈클래스를 벡터에 저장
+				v.add(bean);
+				
+			}
+			con.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	return v;	
+	}
+	
+	
 }

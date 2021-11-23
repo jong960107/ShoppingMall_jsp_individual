@@ -46,7 +46,7 @@ if(id == null){
 		</td>
 		
 		<td align="center" width="200" bgcolor="red">
-		<font color="white" size="4"> <a href="#" style="text-decoration:none;color:white">예약확인</a>  </font>
+		<font color="white" size="4"> <a href="RentcarMain.jsp?center=CarReserveView.jsp"  style="text-decoration:none;color:white">예약확인</a>  </font>
 		</td>
 		
 		<td align="center" width="200" bgcolor="red">
