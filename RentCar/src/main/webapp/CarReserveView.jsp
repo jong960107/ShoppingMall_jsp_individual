@@ -71,12 +71,12 @@ if(id==null){
 		<td width="60" align="center"><%=bean.getUsewifi() %>  </td>
 		<td width="60" align="center"><%=bean.getUseseat() %>  </td>
 		<td width="60" align="center"><%=bean.getUsenavi() %>  </td>
-		<td width="150" align="center"><button onclick="location.href='CarReserveDelete.jsp?' ">삭제 </button>  </td>
+		<td width="150" align="center"><button onclick="location.href='CarReserveDelete.jsp?id=<%id%>&rday=<%=bean.getRday()%>' ">삭제 </button>  </td>
 	</tr>
 	
 	<%
-	}
-}
+	
+	}}
 %>
 	</table>
 	</center>

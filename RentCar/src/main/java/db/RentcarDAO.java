@@ -317,5 +317,27 @@ public class RentcarDAO {
 	return v;	
 	}
 	
-	
+	//하나의 예약 삭제
+	public void carRemoveReserve(String id,String rday) {
+		
+		getCon();
+		
+		try {
+			
+			String sql = "delete from carreserve where id = ? and rday = ?";
+			pstmt = con.prepareStatement(sql);
+			//?
+			pstmt.setString(1, id);
+			pstmt.setString(2, rday);
+			
+			//쿼리 실행 
+			pstmt.executeUpdate();
+			con.close();
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+	}
 }
